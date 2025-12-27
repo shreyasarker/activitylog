@@ -22,5 +22,16 @@ return [
     |
     */
     'capture_request' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Silent Failures
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, logging failures will be logged but won't throw exceptions.
+    | When disabled, exceptions will be thrown if logging fails.
+    |
+    */
+    'silent_failures' => true,
 ];
 

@@ -6,6 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 class ActivitylogServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     public function register(): void
     {
         // Merge package config so config('activitylog.*') works even without publishing
@@ -23,6 +28,11 @@ class ActivitylogServiceProvider extends ServiceProvider
         $this->app->alias(ActivityLogger::class, 'activitylog');
     }
 
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
     public function boot(): void
     {
         // Publish config
@@ -30,10 +40,11 @@ class ActivitylogServiceProvider extends ServiceProvider
             __DIR__ . '/../config/activitylog.php' => config_path('activitylog.php'),
         ], 'activitylog-config');
 
-        // Publish migration (stub -> timestamped migration file)
+        // Publish migration
+        // Users should manually rename it with a timestamp after publishing
         $this->publishes([
-            __DIR__ . '/../database/migrations/create_activity_logs_table.php.stub' =>
-                database_path('migrations/' . date('Y_m_d_His') . '_create_activity_logs_table.php'),
+            __DIR__ . '/../database/migrations/create_activity_logs_table.php' =>
+                database_path('migrations/create_activity_logs_table.php'),
         ], 'activitylog-migrations');
     }
 }
