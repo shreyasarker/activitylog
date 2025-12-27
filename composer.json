@@ -1,0 +1,48 @@
+{
+    "name": "shreyasarker/activitylog",
+    "description": "Simple activity logging package for Laravel 12",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shreya Sarker",
+            "email": "shreya@codeboid.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^12.0",
+        "illuminate/database": "^12.0",
+        "illuminate/http": "^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShreyaSarker\\Activitylog\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShreyaSarker\\Activitylog\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ShreyaSarker\\Activitylog\\ActivitylogServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
